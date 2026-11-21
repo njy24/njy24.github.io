@@ -1,5 +1,6 @@
 ---
 import { site, path } from '../site';
+import 'katex/dist/katex.min.css';
 import '../styles/global.css';
 interface Props { title?: string; description?: string; article?: boolean; noindex?: boolean; }
 const { title, description = site.description, article = false, noindex = false } = Astro.props;

@@ -1,5 +1,8 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { unified } from '@astrojs/markdown-remark';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 // Actions also supports deploying this source as a project site.
 const repository = process.env.GITHUB_REPOSITORY;
@@ -14,5 +17,11 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'always',
   integrations: [sitemap()],
-  markdown: { shikiConfig: { themes: { light: 'github-light', dark: 'github-dark' } } },
+  markdown: {
+    processor: unified({
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [rehypeKatex],
+    }),
+    shikiConfig: { themes: { light: 'github-light', dark: 'github-dark' } },
+  },
 });

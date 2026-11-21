@@ -107,6 +107,7 @@ p { margin-bottom: 16px; }
 .toc summary { cursor: pointer; }
 .toc ul { margin-bottom: 0; }
 .prose { line-height: 1.9; overflow-wrap: anywhere; }
+.prose .katex-display { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding: .5rem 0; }
 .prose h2 { color: var(--accent); font-size: 26px; margin: 28px 0 14px; }
 .prose h3 { font-size: 20px; margin: 24px 0 12px; }
 .prose p { margin-bottom: 20px; }
