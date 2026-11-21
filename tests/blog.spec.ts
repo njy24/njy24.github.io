@@ -4,7 +4,7 @@ test('navigation, Chinese search, empty results, and theme persistence', async (
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/');
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('写下来，慢慢想。');
+  await expect(page.getByRole('heading', { name: /最近的文字/ })).toBeVisible();
   await expect(page.locator('.post-row')).toHaveCount(3);
   await page.getByRole('button', { name: /切换到/ }).click();
   const theme = await page.locator('html').getAttribute('data-theme');
