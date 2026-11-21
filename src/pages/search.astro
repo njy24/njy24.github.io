@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import { path } from '../site';
+---
+<Base title="搜索"><section class="page-intro"><p class="eyebrow">SEARCH</p><h1>找一段文字。</h1><p>搜索标题、标签，或文章里的一个词。</p></section><div class="search-box"><label for="search-input" class="sr-only">搜索文章</label><input id="search-input" type="search" placeholder="输入关键词…" autocomplete="off" /><span aria-hidden="true">⌕</span></div><p id="search-status" class="muted" role="status" aria-live="polite">输入关键词开始搜索。</p><div id="search-results" class="search-results" data-index={path('search.json')}></div><noscript><p>搜索需要 JavaScript；你也可以浏览<a href={path('archive/')}>文章归档</a>。</p></noscript>
+<script>
+  type Entry = { title: string; description: string; tags: string[]; body: string; url: string; date: string };
+  const input = document.querySelector<HTMLInputElement>('#search-input')!;
+  const results = document.querySelector<HTMLElement>('#search-results')!;
+  const status = document.querySelector<HTMLElement>('#search-status')!;
+  let index: Promise<Entry[]> | undefined;
+  let generation = 0;
+  async function search() {
+    const current = ++generation;
+    const query = input.value.trim().toLocaleLowerCase();
+    results.replaceChildren();
+    const url = new URL(location.href);
+    if (query) url.searchParams.set('q', input.value.trim()); else url.searchParams.delete('q');
+    history.replaceState(null, '', url);
+    if (!query) { status.textContent = '输入关键词开始搜索。'; return; }
+    status.textContent = '正在查找…';
+    try {
+      index ??= fetch(results.dataset.index!).then(r => { if (!r.ok) throw Error('Search index unavailable'); return r.json(); });
+      const entries = await index;
+      if (current !== generation) return;
+      const terms = query.split(/\s+/);
+      const matches = entries.filter(p => terms.every(t => `${p.title} ${p.description} ${p.tags.join(' ')} ${p.body}`.toLocaleLowerCase().includes(t)));
+      status.textContent = matches.length ? `找到 ${matches.length} 篇文章。` : '没有找到相关文字，试试其他关键词。';
+      for (const post of matches) {
+        const item = document.createElement('article');
+        const heading = document.createElement('h2');
+        const link = document.createElement('a'); link.href = post.url; link.textContent = post.title; heading.append(link);
+        const description = document.createElement('p'); description.textContent = post.description;
+        const meta = document.createElement('small'); meta.textContent = `${post.date} · ${post.tags.join(' / ')}`;
+        item.append(meta, heading, description); results.append(item);
+      }
+    } catch { index = undefined; if (current === generation) status.textContent = '暂时无法加载搜索，请重试或浏览文章归档。'; }
+  }
+  input.value = new URLSearchParams(location.search).get('q') ?? '';
+  input.addEventListener('input', search);
+  if (input.value) search();
+</script></Base>

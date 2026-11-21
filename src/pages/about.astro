@@ -1,0 +1,5 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, path } from '../site';
+---
+<Base title="关于"><section class="page-intro"><p class="eyebrow">ABOUT THIS SPACE</p><h1>一处安静的记录。</h1><p>留一点空间，给思考和表达。</p></section><div class="prose about-prose"><h2>关于这个博客</h2><p>这里用来收集学习中的发现、实践中的经验，以及日常里值得留下的想法。文字不必总有结论，有时，把问题记下来就是一个开始。</p><h2>你可以在这里找到</h2><ul><li>学习笔记：把新的理解，整理成自己的语言。</li><li>实践记录：记录尝试的过程，以及遇到的问题。</li><li>日常随笔：留住那些一闪而过的念头。</li></ul><h2>保持联系</h2><p>你可以通过 <a href={path('rss.xml')}>RSS 订阅</a>获取新文章。{site.github && <>也欢迎在 <a href={site.github}>GitHub</a> 找到我。</>}</p><hr /><p class="muted">本站使用 Astro 构建，由 GitHub Pages 托管。没有广告，也没有访客追踪。</p></div></Base>
