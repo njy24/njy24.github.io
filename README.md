@@ -10,7 +10,7 @@ GitHub Pages 不运行服务器端程序。本站采用成熟的 Git 内容管�
 
 要在网页上写文章，进入 [文章目录](https://github.com/njy24/njy24.github.io/tree/main/src/content/posts)，点击 Add file / Create new file，创建 `文章英文名.md`，编辑后提交。这里的 GitHub 登录就是内容管理的权限边界。
 
-当前的三篇文章是明确标注的排版示例，可直接替换或删除。原 Hexo 博客不保留在新版页面中，历史版本仍保存在 Git 历史。
+目前没有已发布文章，可以直接开始创建自己的文章。原 Hexo 博客不保留在新版页面中，历史版本仍保存在 Git 历史。
 
 ```yaml
 ---
@@ -24,7 +24,7 @@ draft: false
 这里开始写 Markdown 正文。
 ```
 
-`draft: true` 的文章不会生成页面，也不会进入搜索、RSS、标签或归档。未来日期的文章在构建时隐藏，到日期后需要重新运行构建才会发布。删除示例时一起删除 `example: true` 字段。支持可选的 `updated` 日期和 `permalink: /自定义路径/`。
+`draft: true` 的文章不会生成页面，也不会进入搜索、RSS、标签或归档。未来日期的文章在构建时隐藏，到日期后需要重新运行构建才会发布。支持可选的 `updated` 日期和 `permalink: /自定义路径/`。
 
 图片放在 `public/images/`，正文用 `![图片说明](/images/文件名.png)` 引用。
 
@@ -43,7 +43,7 @@ npm run dev
 npm run new -- my-first-post "我的第一篇文章"
 ```
 
-编辑 `src/site.ts` 修改昵称、简介、GitHub 链接和首页标题。全站样式在 `src/styles/global.css`，文章在 `src/content/posts/`。
+编辑 `src/site.ts` 修改昵称、简介、GitHub 链接。全站样式在 `src/styles/global.css`，文章在 `src/content/posts/`。
 
 ## 检查和发布
 
