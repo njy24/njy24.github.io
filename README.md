@@ -10,7 +10,7 @@ GitHub Pages 不运行服务器端程序。本站采用成熟的 Git 内容管�
 
 要在网页上写文章，进入 [文章目录](https://github.com/njy24/njy24.github.io/tree/main/src/content/posts)，点击 Add file / Create new file，创建 `文章英文名.md`，编辑后提交。这里的 GitHub 登录就是内容管理的权限边界。
 
-目前没有已发布文章，可以直接开始创建自己的文章。原 Hexo 博客不保留在新版页面中，历史版本仍保存在 Git 历史。
+文章保存在 `src/content/posts/`。原 Hexo 博客的历史版本仍保存在 Git 历史。
 
 ```yaml
 ---
@@ -25,6 +25,8 @@ draft: false
 ```
 
 `draft: true` 的文章不会生成页面，也不会进入搜索、RSS、标签或归档。未来日期的文章在构建时隐藏，到日期后需要重新运行构建才会发布。支持可选的 `updated` 日期和 `permalink: /自定义路径/`。
+
+草稿也必须保留上面的 `title`、`description`、`date` 信息。不要在文章目录内提交完全空白的 `.md` 文件；它们会导致整站构建失败。可以用下面的 `npm run new` 创建合法草稿。
 
 图片放在 `public/images/`，正文用 `![图片说明](/images/文件名.png)` 引用。
 
@@ -58,6 +60,8 @@ npm run preview
 ```
 
 构建输出为 `dist/`。`.github/workflows/deploy.yml` 在推送 main 时自动检查、构建并部署 Pages；PR 只检查构建，不部署。推荐在仓库 Settings → Pages → Source 选择 GitHub Actions。
+
+`git push` 成功只表示源码上传成功。推送后到 [Actions](https://github.com/njy24/njy24.github.io/actions/workflows/deploy.yml) 查看对应提交，等待 `build` 和 `deploy` 都成功，网页才会更新；构建失败时线上仍保留旧版。
 
 为兼容仓库已有的 main 根目录发布方式，首次更新也提供构建后的静态文件；以 `src/` 内源码为准，不要手动修改生成的 HTML。旧静态文件可在 Git 历史中恢复。若保持分支发布方式，本地构建后同步 `dist/` 到仓库根目录再推送，或改用上述 GitHub Actions 发布方式。
 
