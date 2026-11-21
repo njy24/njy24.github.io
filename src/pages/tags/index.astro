@@ -5,4 +5,4 @@ import { path } from '../../site';
 const all = await posts();
 const tags = [...new Set(all.flatMap(p => p.data.tags))].sort((a,b) => a.localeCompare(b, 'zh'));
 ---
-<Base title="标签"><section class="page-intro"><p class="eyebrow">TOPICS</p><h1>顺着兴趣，读下去。</h1><p>给文字一个分类，也给思绪一条线索。</p></section><div class="tag-grid">{tags.map(tag => <a href={path(`tags/${encodeURIComponent(tag)}/`)}><span>{tag}</span><span>{all.filter(p => p.data.tags.includes(tag)).length} 篇</span></a>)}</div></Base>
+<Base title="标签"><section class="page-section"><h1>标签</h1>{tags.length === 0 && <p class="empty">暂无标签。</p>}<div class="tag-grid">{tags.map(tag => <a href={path(`tags/${encodeURIComponent(tag)}/`)}><span>{tag}</span><span>{all.filter(p => p.data.tags.includes(tag)).length} 篇</span></a>)}</div></section></Base>

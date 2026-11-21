@@ -1,8 +1,8 @@
-# njy24 的博客
+# njy24 的个人网站
 
 网站：https://njy24.github.io/
 
-简约中文博客，采用 Astro 静态生成、Markdown 内容集合和 GitHub Pages。包含文章、标签、归档、全文搜索、深浅色主题、RSS、站点地图和移动端适配。
+采用黑色通栏导航、白底和青绿色标题的个人网站，布局参考 https://xiazr20.top/ 。包括个人简介、公开项目与动态、文章、搜索和联系方式。使用 Astro 静态生成、Markdown 内容集合和 GitHub Pages。
 
 ## 内容管理方案
 
@@ -43,7 +43,11 @@ npm run dev
 npm run new -- my-first-post "我的第一篇文章"
 ```
 
-编辑 `src/site.ts` 修改昵称、简介、GitHub 链接。全站样式在 `src/styles/global.css`，文章在 `src/content/posts/`。
+编辑 `src/site.ts` 修改昵称、`introduction` 个人简介和 GitHub 链接。个人简介目前留空。全站样式在 `src/styles/global.css`，文章在 `src/content/posts/`。
+
+## 公开项目和动态
+
+`scripts/sync-github.mjs` 在构建时获取 njy24 的公开仓库与近期提交，结果保存在 `src/data/github.json`。访问者无需请求 GitHub API，接口不可用时继续使用已保存的数据。数据在每次构建时更新，不是实时刷新；可以重新运行 GitHub Actions 获取最新动态。只展示公开数据，不读取私有仓库。GitHub Actions 令牌只用于构建，不会进入页面。
 
 ## 检查和发布
 

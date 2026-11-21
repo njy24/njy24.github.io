@@ -1,0 +1,6 @@
+---
+import Base from '../layouts/Base.astro';
+import Projects from '../components/Projects.astro';
+import { site } from '../site';
+---
+<Base title="项目"><section class="page-section"><h1>项目</h1><Projects /><p class="page-more"><a href={`${site.github}?tab=repositories`}>在 GitHub 查看全部仓库</a></p></section></Base>

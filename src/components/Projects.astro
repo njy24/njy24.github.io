@@ -1,0 +1,11 @@
+---
+import data from '../data/github.json';
+import { date } from '../site';
+interface Props { limit?: number; }
+const entries = data.projects.slice(0, Astro.props.limit ?? data.projects.length);
+---
+{entries.length ? <ul class="project-list">{entries.map((project, i) => <li>
+  <a class:list={['project-avatar', `project-tone-${i % 3}`]} href={project.homepage || project.url} aria-label={`访问 ${project.name}`}><span>{project.name.charAt(0).toUpperCase()}</span></a>
+  <div class="project-content"><h3><a href={project.url}>{project.name}</a></h3>{project.description && <p>{project.description}</p>}{project.language && <span class="project-language">{project.language}</span>}</div>
+  <div class="project-meta"><span aria-label={`${project.stars} 个星标`}>☆ {project.stars}</span><time datetime={project.updated}>{date(new Date(project.updated))}</time></div>
+</li>)}</ul> : <p class="empty">暂无公开项目。</p>}

@@ -1,8 +1,8 @@
 export const site = {
-  name: 'njy24 的博客',
+  name: 'njy24 的个人网站',
   author: 'njy24',
-  title: '写下来，慢慢想。',
-  description: '记录学习、实践，以及日常里值得留下的想法。',
+  description: 'njy24 的个人网站、文章与项目。',
+  introduction: '',
   github: 'https://github.com/njy24',
 };
 

@@ -1,0 +1,73 @@
+{
+  "updated": "2026-11-21T07:52:50.626Z",
+  "projects": [
+    {
+      "name": "njy24.github.io",
+      "url": "https://github.com/njy24/njy24.github.io",
+      "homepage": "",
+      "description": "",
+      "language": "HTML",
+      "stars": 0,
+      "updated": "2026-11-21T07:40:16Z"
+    },
+    {
+      "name": "protein-notes",
+      "url": "https://github.com/njy24/protein-notes",
+      "homepage": "",
+      "description": "",
+      "language": "JavaScript",
+      "stars": 0,
+      "updated": "2026-11-21T01:53:28Z"
+    }
+  ],
+  "activities": [
+    {
+      "repository": "njy24 / njy24.github.io",
+      "repositoryUrl": "https://github.com/njy24/njy24.github.io",
+      "sha": "f5a55b287e0e4cfcf81cb21a781476599636945e",
+      "url": "https://github.com/njy24/njy24.github.io/commit/f5a55b287e0e4cfcf81cb21a781476599636945e",
+      "message": "Remove sample posts and publish an empty blog",
+      "date": "2026-11-21T07:40:16Z"
+    },
+    {
+      "repository": "njy24 / njy24.github.io",
+      "repositoryUrl": "https://github.com/njy24/njy24.github.io",
+      "sha": "c95ac882f53669e93b0dd50cfe9e0281070d1418",
+      "url": "https://github.com/njy24/njy24.github.io/commit/c95ac882f53669e93b0dd50cfe9e0281070d1418",
+      "message": "Remove homepage introduction and brand mark",
+      "date": "2026-11-21T07:38:56Z"
+    },
+    {
+      "repository": "njy24 / njy24.github.io",
+      "repositoryUrl": "https://github.com/njy24/njy24.github.io",
+      "sha": "e86f4c7d6dd83b0e79765f084f3ea81827bb980a",
+      "url": "https://github.com/njy24/njy24.github.io/commit/e86f4c7d6dd83b0e79765f084f3ea81827bb980a",
+      "message": "Build minimalist Astro blog with Markdown publishing and Pages workflow",
+      "date": "2026-11-21T07:30:27Z"
+    },
+    {
+      "repository": "njy24 / protein-notes",
+      "repositoryUrl": "https://github.com/njy24/protein-notes",
+      "sha": "b60e799a6c75165e1574dadef1eacebc067d44b1",
+      "url": "https://github.com/njy24/protein-notes/commit/b60e799a6c75165e1574dadef1eacebc067d44b1",
+      "message": "content: 周报增加主线、判断与下一步，六条扩写到 700–900 字",
+      "date": "2026-10-24T04:28:44Z"
+    },
+    {
+      "repository": "njy24 / protein-notes",
+      "repositoryUrl": "https://github.com/njy24/protein-notes",
+      "sha": "45ed5c884f13f5835e1c4ef892917734686b84f4",
+      "url": "https://github.com/njy24/protein-notes/commit/45ed5c884f13f5835e1c4ef892917734686b84f4",
+      "message": "design: 白纸/墨字/蓝色强调的整站重做；操作台与概念树同步换肤",
+      "date": "2026-10-24T04:24:48Z"
+    },
+    {
+      "repository": "njy24 / protein-notes",
+      "repositoryUrl": "https://github.com/njy24/protein-notes",
+      "sha": "4ddb2d346e9f358c46beb9853f192b348ebfb468",
+      "url": "https://github.com/njy24/protein-notes/commit/4ddb2d346e9f358c46beb9853f192b348ebfb468",
+      "message": "chore: 更新 workspace lockfile",
+      "date": "2026-10-23T16:51:55Z"
+    }
+  ]
+}

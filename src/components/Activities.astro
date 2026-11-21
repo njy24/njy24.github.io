@@ -1,0 +1,11 @@
+---
+import data from '../data/github.json';
+import { date } from '../site';
+interface Props { limit?: number; }
+const entries = data.activities.slice(0, Astro.props.limit ?? data.activities.length);
+---
+{entries.length ? <ol class="activity-list">{entries.map(entry => <li>
+  <span class="activity-marker" aria-hidden="true"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h4m6 0h4"/><circle cx="8" cy="8" r="3"/></svg></span>
+  <div class="activity-content"><p>更新了 <a href={entry.repositoryUrl}>{entry.repository}</a></p><p class="commit-line"><a class="commit-sha" href={entry.url}>{entry.sha.slice(0, 7)}</a><span aria-hidden="true"> · </span><span>{entry.message}</span></p></div>
+  <time datetime={entry.date}>{date(new Date(entry.date))}</time>
+</li>)}</ol> : <p class="empty">暂无公开动态。</p>}

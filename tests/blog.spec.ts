@@ -4,7 +4,7 @@ test('navigation, search, empty results, and theme persistence', async ({ page, 
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: /最近的文字/ })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '近期活动', exact: true })).toBeVisible();
   const index = await (await request.get('/search.json')).json();
   await expect(page.locator('.post-row')).toHaveCount(Math.min(index.length, 8));
   await page.getByRole('button', { name: /切换到/ }).click();
@@ -47,7 +47,7 @@ test('all internal links and assets resolve; feeds contain published posts only'
 
 test('mobile reading layout does not overflow', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
-  for (const route of ['/', '/archive/', '/tags/', '/about/', '/search/']) {
+  for (const route of ['/', '/archive/', '/tags/', '/about/', '/activities/', '/projects/', '/contact/', '/search/']) {
     await page.goto(route);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), route).toBe(true);
   }
